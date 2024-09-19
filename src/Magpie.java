@@ -33,7 +33,7 @@ public class Magpie {
 	public String getResponse(String statement)
 	{
 		statement = statement.toLowerCase().strip();
-		String response = "";
+        String response = "";
 		if (statement.indexOf("no") >= 0)
 		{
             // TODO: make this less stupid
@@ -44,26 +44,43 @@ public class Magpie {
 				|| statement.indexOf("sister") >= 0
 				|| statement.indexOf("brother") >= 0)
 		{
-			if(lastTopic.equals("family")) 
+
+        
+			if(lastTopic.equals("family")) {
 				response = "You're lucky to have such a great family.";
+            }
 			else
 				response = "Tell me more about your family.";
 			lastTopic = "family";
-		}
-		else if(statement.length() == 0) {
+            }
+
+        // PETS //
+        // PETS //
+        // PETS //
+		else if(statement.indexOf("guppy") > -1 
+				|| statement.indexOf("dog") >= 0 
+				|| statement.indexOf("cat") >-1 
+				|| statement.indexOf("hampster") > -1
+				|| statement.indexOf("bunny") >= 0
+				|| statement.indexOf("komodo dragon") > -1);
+        
+	
+		
+
+        // TEACHER //
+        else if (statement.indexOf("Adiletta") != -1
+                || statement.indexOf("Mr. A") != -1) {
+            response = "He sounds like a good teacher.";
+        } else {
+
+        }
+
+
+
+		} else if(statement.length() == 0) {
 			response = "Say something, please";
 		}
-		else if (statement.indexOf("cat") >= 0
-				|| statement.indexOf("dog") != -1
-				|| statement.indexOf("fish") >= 0
-				|| statement.indexOf("hamster") >= 0)
-		{
-			if(lastTopic.equals("pets")){
-				response = "I never get tired of talking about pets.";
-			}else 
-				response = "Tell me more about your pets.";
-			lastTopic = "pets";
-		}
+		
 		else
 		{
 			response = getRandomResponse();
